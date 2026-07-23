@@ -1,7 +1,7 @@
-from pydantic import BaseModel, Field
+from sqlmodel import SQLModel, Field
 
-class Book(BaseModel):
-    id: int
-    title: str = Field(min_length=2)
-    author: str = Field(min_length=2)
-    price: float = Field(gt=0) 
+class Book(SQLModel, table=True):
+    id: int | None = Field(default=None, primary_key=True)
+    title: str
+    author: str
+    price: float
