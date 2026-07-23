@@ -20,7 +20,7 @@ def create_db_and_tables():
     SQLModel.metadata.create_all(engine)
 
 
-@app.event("startup")
+@app.on_event("startup")
 def on_startup():
     create_db_and_tables()
 
